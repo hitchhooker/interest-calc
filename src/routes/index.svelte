@@ -60,7 +60,8 @@
 
 <section>
 	Start date(not working yet):
-	<DatePicker range={true} on:range-selected={(e) => selected = e.detail}/><br />
+	<DatePicker range={true} on:range-selected={(e) => selected = e.detail}/>
+	<br />
 	{JSON.stringify(selected)}
 	
 	date1:{date1react.format('MM/DD/YYYY')}<br />
