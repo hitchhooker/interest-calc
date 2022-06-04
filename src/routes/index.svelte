@@ -77,11 +77,14 @@
 			<input type="range" bind:value={lendingTime} min="1" max="10000" />
 		</label>
 	</div>
-
+	
+	Amount($):<input bind:value={lendingAmount} /><br />
 	Rate(%):<input bind:value={lendingRate} /><br />
 	Start date(not working - starts today atm):
 	<Datepicker bind:date1 start={startingFromDateStart} end={startingFromDateEnd} {theme} />
 	<br />
+	Start date:
+	<input bind:value={date1} readonly />
 	End date:
 	<input bind:value={date2} readonly />
 	<br />
@@ -90,7 +93,6 @@
 		<li>A = Total Accrued Amount (principal + interest)</li>
 		<li>P = Principal Amount</li>
 		<li>I = Interest Amount</li>
-		<li>r = Rate of Interest per year in decimal; r = R/100</li>
 		<li>R = Rate of Interest per year as a percent; R = r * 100</li>
 		<li>t = Time Period involved in years</li>
 	</ul>
