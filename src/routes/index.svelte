@@ -58,44 +58,48 @@
 <section>
 	date1:{date1react.format('MM/DD/YYYY')}<br />
 	date2:{date2.format('MM/DD/YYYY')}<br />
-
-	<div>
-		<h1>Exact: {totalAccruedAmountExact}</h1>
-		{totalAccruedAmountExact} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingYears} )
-		<br />
-		A = P(1 + rt)
+	<div class="flex flex-col">
+		<div class="p-4 text-center">
+			<h1>Exact: {totalAccruedAmountExact}</h1>
+			{totalAccruedAmountExact} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingYears} )
+			<p>A = P(1 + rt)</p>
+		</div>
+		<div class="p-4 text-center">
+			<h1>Ordinary 360: {totalAccruedAmountOrdinary}</h1>
+			{totalAccruedAmountOrdinary} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingTime}/360 )
+			<p>A = P(1 + rt)</p>
+		</div>
 	</div>
-	<div>
-		<h1>Ordinary 360: {totalAccruedAmountOrdinary}</h1>
-		{totalAccruedAmountOrdinary} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingTime}/360 )
-		<p>A = P(1 + rt)</p>
-	</div>
-	<div>
+	<div class="p-4">
 		<p>Number of days to pay loan back</p>
 		<label>
 			<input type="number" bind:value={lendingTime} min="1" max="10000" />
 			<input type="range" bind:value={lendingTime} min="1" max="10000" />
 		</label>
 	</div>
-	
-	Amount($):<input bind:value={lendingAmount} /><br />
-	Rate(%):<input bind:value={lendingRate} /><br />
-	Start date(not working - starts today atm):
-	<Datepicker bind:date1 start={startingFromDateStart} end={startingFromDateEnd} {theme} />
-	<br />
-	Start date:
-	<input bind:value={date1} readonly />
-	End date:
-	<input bind:value={date2} readonly />
-	<br />
-	Where:<br />
-	<ul>
-		<li>A = Total Accrued Amount (principal + interest)</li>
-		<li>P = Principal Amount</li>
-		<li>I = Interest Amount</li>
-		<li>R = Rate of Interest per year as a percent; R = r * 100</li>
-		<li>t = Time Period involved in years</li>
-	</ul>
+	<div class="flex flex-col p-4">
+		<div>Amount($):<input bind:value={lendingAmount} /></div>
+		<div>Rate(%):<input bind:value={lendingRate} /></div>
+	</div>
+	<div class="flex flex-col p-4">
+		<div>
+		Start date:
+		<input bind:value={date1react} readonly />
+		</div>
+		<div>
+		End date:
+		<input bind:value={date2} readonly />
+		</div>
+	</div>
+	<div>
+		<ul>
+			<li>A = Total Accrued Amount (principal + interest)</li>
+			<li>P = Principal Amount</li>
+			<li>I = Interest Amount</li>
+			<li>R = Rate of Interest per year as a percent; R = r * 100</li>
+			<li>t = Time Period involved in years</li>
+		</ul>
+	</div>
 </section>
 
 <style>
@@ -105,5 +109,8 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
+	}
+	p {
+		
 	}
 </style>
