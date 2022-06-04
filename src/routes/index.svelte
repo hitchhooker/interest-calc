@@ -13,9 +13,7 @@
 
 	import { Datepicker } from 'svelte-calendar';
 	import dayjs from 'dayjs';
-	import duration from 'dayjs/plugin/duration'; // import plugins
-	dayjs.extend(duration); // use plugin
-
+	
 	var startDate;
 	var endDate;
 	$: dateEnd = endDate;

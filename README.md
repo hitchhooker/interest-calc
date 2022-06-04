@@ -6,4 +6,5 @@ Once you've created a project and installed dependencies with `npm install` (or 
 pnpm install
 pnpm run dev
 ```
+
 ->>> localhost:3000
