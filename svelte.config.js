@@ -16,6 +16,9 @@ const config = {
 		adapter: adapter(),
 
 		vite: {
+			ssr: {
+        noExternal: [ 'dayjs' ]
+      },
 			plugins: [
 				UnoCss({
 					extractors: [extractorSvelte],

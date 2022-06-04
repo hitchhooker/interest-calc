@@ -11,7 +11,9 @@
 	
 */
 
-	import { Datepicker } from 'svelte-calendar';
+	// https://github.com/beyonk-adventures/svelte-datepicker or this maybe better
+	import DatePicker from "@beyonk/svelte-datepicker/src/components/DatePicker.svelte";
+	// import dayjs
 	import dayjs from 'dayjs';
 	
 	var startDate;
@@ -48,6 +50,7 @@
 			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
 		}
 	};
+	let selected;
 </script>
 
 <svelte:head>
@@ -56,6 +59,10 @@
 </svelte:head>
 
 <section>
+	Start date(not working yet):
+	<DatePicker range={true} on:range-selected={(e) => selected = e.detail}/><br />
+	{JSON.stringify(selected)}
+	
 	date1:{date1react.format('MM/DD/YYYY')}<br />
 	date2:{date2.format('MM/DD/YYYY')}<br />
 	<div class="flex flex-col">
