@@ -10,7 +10,10 @@
 </main>
 
 <footer>
-	<p>visit <a href="https://rotko.net">rotko.net</a> to purchase implementation of this realistic interest calculator.</p>
+	<p>
+		visit <a href="https://rotko.net">rotko.net</a> to purchase implementation of this realistic interest
+		calculator.
+	</p>
 </footer>
 
 <style>

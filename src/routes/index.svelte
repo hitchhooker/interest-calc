@@ -3,7 +3,7 @@
 </script>
 
 <script>
-/*
+	/*
 	Functions for reactive realistic interest rate
 
 	features
@@ -11,11 +11,10 @@
 	
 */
 
-
 	import { Datepicker } from 'svelte-calendar';
 	import dayjs from 'dayjs';
-	import duration from 'dayjs/plugin/duration' // import plugins
-	dayjs.extend(duration) // use plugin
+	import duration from 'dayjs/plugin/duration'; // import plugins
+	dayjs.extend(duration); // use plugin
 
 	var startDate;
 	var endDate;
@@ -26,12 +25,12 @@
 	const startingFromDateEnd = dayjs().add(1, 'year');
 	// lending time in days
 	let lendingTime = 1;
-	
+
 	var date1 = dayjs();
 	var date2 = dayjs().add(lendingTime, 'days');
 	$: date1react = dayjs();
 	$: date2 = dayjs().add(lendingTime, 'days');
-		// lending amount in dollars
+	// lending amount in dollars
 	let lendingAmount = 10000;
 	// lending rate in percents
 	let lendingRate = 3.875;
@@ -40,22 +39,17 @@
 	$: lendingYears = date1react.add(lendingTime, 'days').diff(date1, 'years', true);
 
 	// lets calculate total
-	$: totalAccruedAmountOrdinary = 
-		lendingAmount*(1+(lendingRate/100)*
-		(lendingTime/360));
-	$: totalAccruedAmountExact = 
-		lendingAmount*(1+(lendingRate/100)*
-		date1react
-			.add(lendingTime, 'days')
-			.diff(date1, 'years', true));
-	
+	$: totalAccruedAmountOrdinary = lendingAmount * (1 + (lendingRate / 100) * (lendingTime / 360));
+	$: totalAccruedAmountExact =
+		lendingAmount *
+		(1 + (lendingRate / 100) * date1react.add(lendingTime, 'days').diff(date1, 'years', true));
+
 	const theme = {
 		calendar: {
 			width: '400px',
 			shadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
 		}
 	};
-	
 </script>
 
 <svelte:head>
@@ -64,15 +58,14 @@
 </svelte:head>
 
 <section>
-	date1:{date1react.format('MM/DD/YYYY')}<br>
-	date2:{date2.format('MM/DD/YYYY')}<br>
-	
-	
+	date1:{date1react.format('MM/DD/YYYY')}<br />
+	date2:{date2.format('MM/DD/YYYY')}<br />
+
 	<div>
 		<h1>Exact: {totalAccruedAmountExact}</h1>
-	 	{totalAccruedAmountExact} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingYears} )
-	 	<br>
-	 	A = P(1 + rt)
+		{totalAccruedAmountExact} = {lendingAmount}(1 + ({lendingRate}/100)*{lendingYears} )
+		<br />
+		A = P(1 + rt)
 	</div>
 	<div>
 		<h1>Ordinary 360: {totalAccruedAmountOrdinary}</h1>
@@ -82,19 +75,19 @@
 	<div>
 		<p>Number of days to pay loan back</p>
 		<label>
-			<input type=number bind:value={lendingTime} min=1 max=10000>
-			<input type=range bind:value={lendingTime} min=1 max=10000>
+			<input type="number" bind:value={lendingTime} min="1" max="10000" />
+			<input type="range" bind:value={lendingTime} min="1" max="10000" />
 		</label>
 	</div>
-	
-	Rate(%): <input bind:value={lendingRate}><br>
+
+	Rate(%):<input bind:value={lendingRate} /><br />
 	Start date(not working - starts today atm):
 	<Datepicker bind:date1 start={startingFromDateStart} end={startingFromDateEnd} {theme} />
-	<br>
+	<br />
 	End date:
-	<input bind:value={date2} readonly/>
-		<br>
-	Where:<br>
+	<input bind:value={date2} readonly />
+	<br />
+	Where:<br />
 	<ul>
 		<li>A = Total Accrued Amount (principal + interest)</li>
 		<li>P = Principal Amount</li>
@@ -113,5 +106,4 @@
 		align-items: center;
 		flex: 1;
 	}
-
 </style>
