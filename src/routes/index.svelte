@@ -22,7 +22,7 @@
 	// until +1 year from current date
 	const startingFromDateEnd = dayjs().add(1, 'year');
 	// lending time in days
-	let lendingTime = 1;
+	let lendingTime = 360;
 
 	var date1 = dayjs();
 	var date2 = dayjs().add(lendingTime, 'days');
