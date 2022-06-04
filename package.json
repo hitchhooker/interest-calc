@@ -47,6 +47,8 @@
 		"@fontsource/fira-mono": "^4.5.8",
 		"@lukeed/uuid": "^2.0.0",
 		"@supabase/supabase-js": "^1.35.3",
-		"cookie": "^0.5.0"
+		"cookie": "^0.5.0",
+		"dayjs": "^1.11.2",
+		"svelte-calendar": "^3.1.6"
 	}
 }

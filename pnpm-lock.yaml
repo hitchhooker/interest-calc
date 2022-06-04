@@ -20,12 +20,14 @@ specifiers:
   '@unocss/reset': ^0.37.3
   '@unocss/vite': ^0.37.3
   cookie: ^0.5.0
+  dayjs: ^1.11.2
   eslint: ^8.17.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
   prettier: ^2.6.2
   prettier-plugin-svelte: ^2.7.0
   svelte: ^3.48.0
+  svelte-calendar: ^3.1.6
   svelte-check: ^2.7.2
   svelte-preprocess: ^4.10.6
   tslib: ^2.4.0
@@ -37,6 +39,8 @@ dependencies:
   '@lukeed/uuid': 2.0.0
   '@supabase/supabase-js': 1.35.3
   cookie: 0.5.0
+  dayjs: 1.11.2
+  svelte-calendar: 3.1.6
 
 devDependencies:
   '@core': link:unocss/@core
@@ -869,6 +873,10 @@ packages:
     dependencies:
       es5-ext: 0.10.61
       type: 1.2.0
+    dev: false
+
+  /dayjs/1.11.2:
+    resolution: {integrity: sha512-F4LXf1OeU9hrSYRPTTj/6FbO4HTjPKXvEIC1P2kcnFurViINCVk3ZV0xAS3XVx9MkMsXbbqlK6hjseaYbgKEHw==}
     dev: false
 
   /debug/2.6.9:
@@ -1729,6 +1737,10 @@ packages:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
 
+  /just-throttle/2.3.1:
+    resolution: {integrity: sha512-0H4miIAWZYpnpg7oD/Y/PBb77ISSHAETif5xK9EnwIgYCO6oC8ErkJxDumMUTR44shSOwptRIArRuvNuvN/hOw==}
+    dev: false
+
   /kleur/4.1.4:
     resolution: {integrity: sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==}
     engines: {node: '>=6'}
@@ -2479,6 +2491,13 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /svelte-calendar/3.1.6:
+    resolution: {integrity: sha512-jOHiPlxBAa1LGVFQZoczdAGnCSI2RKcuQQHj32TjLbXO/P2Povx4JphPEcP7XjKj/s/jimBC6xQyFhyjD0vxbg==}
+    dependencies:
+      dayjs: 1.11.2
+      just-throttle: 2.3.1
+    dev: false
 
   /svelte-check/2.7.2_svelte@3.48.0:
     resolution: {integrity: sha512-TuVX4YtXHbRM8sVuK5Jk+mKWdm3f0d6hvAC6qCTp8yUszGZewpEBCo2V5fRWZCiz+0J4OCiDHOS+DFMxv39rJA==}
